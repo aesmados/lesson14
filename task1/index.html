@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div id="app">
+            <h1 class="pt-4">Choose your destination</h1>
+            
+            <div class="row">
+                <form action="" class="form-group col-lg-6 pt-5"  @onsubmit="addJourney">
+                    <div class="form-floating mb-3">
+                        <input type="text" placeholder="name" class="form-control" id="name" v-model="name">
+                        <label for="name">Name</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" placeholder="surname" class="form-control" id="surname" v-model="surname">
+                        <label for="surname">Surname</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" placeholder="fathername" class="form-control" id="fathername" v-model="fathername">
+                        <label for="fathername">Fathername</label>
+                    </div>
+                    <h5>Choose country</h5>
+                    <select class="form-select mb-3 mt-3" v-model="country">
+                        <option>Australia</option>
+                        <option>Austria</option>
+                        <option>United Kingdom</option>
+                        <option>United States of America</option>
+                    </select>
+                    <h5>Choose excursion</h5>
+                    <div class="row mb-3 mt-3">
+                        <div class="col-3">
+                            <input type="checkbox" id="checkbox1" class="form-check-input" v-model="excursion" :value="'excursion1'"> <label class="form-check-label" for="checkbox1"> excursion 1</label>
+                        </div>
+                        <div class="col-3">
+                            <input type="checkbox" id="checkbox2" class="form-check-input" v-model="excursion" :value="'excursion2'"> <label class="form-check-label" for="checkbox2"> excursion 2</label>
+                        </div>
+                        <div class="col-3">
+                            <input type="checkbox" id="checkbox3" class="form-check-input" v-model="excursion" :value="'excursion3'"> <label class="form-check-label" for="checkbox3"> excursion 3</label> 
+                        </div>
+                    </div>       
+                    <h5>Choose baggage size</h5>                       
+                    <div class="row mb-3 mt-3">
+                        <div class="col-2">
+                            <input type="radio" id="radio1" name="radio" class="form-check-input" v-model="baggage" value="5 kg"> <label class="form-check-label" for="radio1">5 kg</label>
+                        </div>
+                        <div class="col-2">
+                            <input type="radio" id="radio2" name="radio" class="form-check-input" v-model="baggage" value="10 kg"> <label class="form-check-label" for="radio2">10 kg</label>
+                        </div>
+                        <div class="col-2">
+                            <input type="radio" id="radio3" name="radio" class="form-check-input" v-model="baggage" value="20+ kg"> <label class="form-check-label" for="radio3">20+ kg</label>
+                        </div>
+                    </div>
+                    <textarea name="" id="" placeholder="Comments" class="form-control" v-model="comments"></textarea>
+                </form>
+                <div class="card p-3 mt-5 col-lg-6">
+                    <h6>Name: {{ name }}</h6>
+                    <h6>Surname: {{ surname }}</h6>
+                    <h6>FatherName: {{ fathername }}</h6>
+    
+                    <h6>Country: {{country}}</h6>
+                    <h6>Excursion: {{excursion.join(', ')}}</h6>
+                    <h6>Baggage: {{baggage }}</h6>
+                    <p>Comments: {{comments}}</p>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
